@@ -1,0 +1,41 @@
+(* ************************** *)
+(* *****  Information   ***** *)
+(* ************************** *)
+M$ModelName = "Z_MUE";
+
+M$Information = {
+Authors      -> { "J. Turner"},
+Version      -> "1.1",
+Date         -> "15 02 2017",
+Institutions -> {"IPPP / University of Durham"}
+};
+
+M$Parameters = {
+	
+	gZmu == {
+	     ParameterType -> External,
+	     Value 	   -> 0.0,
+	     TeX	   -> Subscript[Z,mue],
+	     InteractionOrder->{QED,2},
+	     Description   -> "New Physics Coupling Z to mu e"}
+
+};
+
+
+
+(* ************************** *)
+(* *****   Lagrangian   ***** *)
+(* ************************** *)
+M$ClassesDescription = {
+
+
+}
+(* Coupling between Z and mu e *)
+
+
+LZMUE:= gZmu*(ebar.Z[m].ProjM[m].mu);
+
+LCFV:=LZMUE + HC[LZMUE];
+
+LFull:= LSM  + LCFV;
+
